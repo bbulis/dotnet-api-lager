@@ -5,8 +5,8 @@ namespace Lager.DbController
 {
     public class DatabaseContext : DbContext
     {
-        public DbSet<TireBrand> TireBrand {get; set;}
-        public DbSet<Tire> Tire {get; set;}
+        public DbSet<TireBrand> TireBrand {get; set;} = default!;
+        public DbSet<Tire> Tire {get; set;} = default!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
