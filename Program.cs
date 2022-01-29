@@ -18,11 +18,6 @@ namespace Lager.WebController
             });
             app.Run();     
         }
-
-        public void startUp()
-        {
-            
-        }
     }
 
     public class Response
