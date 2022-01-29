@@ -16,22 +16,6 @@ namespace Lager.DbController
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<TireBrand>(entity => {
-                entity.HasKey(e => e.TireBrandId);
-                entity.Property(e => e.TireBrandName).IsRequired();
-            });
-
-            modelBuilder.Entity<Tire>(entity => {
-                entity.HasKey(e => e.TireId);
-                entity.Property(e => e.Brand).IsRequired();
-                entity.Property(e => e.Width).IsRequired();
-                entity.Property(e => e.Height).IsRequired();
-                entity.Property(e => e.RimSize).IsRequired();
-                entity.Property(e => e.LoadIndex).IsRequired();
-                entity.Property(e => e.SpeedIndex).IsRequired();
-                entity.Property(e => e.Description).IsRequired();
-            });
         }
     }
 }
