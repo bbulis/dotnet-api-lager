@@ -1,6 +1,7 @@
-using System.Text.Json;
+using System;
+using System.Text;
 
-namespace Lager.WebController
+namespace Lager
 {
     
     public class Program
@@ -8,27 +9,21 @@ namespace Lager.WebController
         
         public static void Main()
         {
-            var builder = WebApplication.CreateBuilder();
-            var app =  builder.Build();
-            app.UseHttpsRedirection();
-            app.MapGet("/", () => {
-                var response = new Response(true, "data test");
-                var responseJson = JsonSerializer.Serialize(response);
-                return responseJson;
-            });
-            app.Run();     
-        }
-    }
+            new StartUp().InitStart();
 
-    public class Response
-    {
-        public bool successful {get; set;}
-        public string data {get; set;}
-
-        public Response(bool  successful, string data)
-        {
-            this.successful = successful;
-            this.data = data;
+            using(var context = new DatabaseContext())
+            {
+                var brands = context.TireBrand.ToList();
+                Console.Write(brands);
+                foreach(var brand in brands)
+                {
+                    var data = new StringBuilder();
+                    data.AppendLine($"ID: {brand.TireBrandId}");
+                    data.AppendLine($"Display Name: {brand.TireBrandDisplayName}");
+                    data.AppendLine($"Name: {brand.TireBrandName}");
+                    Console.WriteLine(data.ToString());
+                }   
+            }
         }
     }
 
