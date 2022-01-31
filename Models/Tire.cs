@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Lager.Models
+namespace Lager
 {
     public enum TireType
     {
@@ -19,7 +19,6 @@ namespace Lager.Models
 
     public class Tire
     {
-        [Key]
         public string TireId {get; set;} = default!;
         public virtual TireBrand Brand {get; set;} = default!;
         [Column(TypeName = "nvarchar(50)")]
