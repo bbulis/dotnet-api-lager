@@ -9,7 +9,7 @@ namespace Lager
         
         public static void Main()
         {
-            new StartUp().InitStart();
+            // new StartUp().InitStart();
 
             using(var context = new DatabaseContext())
             {
@@ -22,7 +22,7 @@ namespace Lager
                     data.AppendLine($"Display Name: {brand.TireBrandDisplayName}");
                     data.AppendLine($"Name: {brand.TireBrandName}");
                     Console.WriteLine(data.ToString());
-                }   
+                }
             }
         }
     }

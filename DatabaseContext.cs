@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using MySql.EntityFrameworkCore.Extensions;
+using MySql.Data.EntityFrameworkCore;
 
 namespace Lager
 {
